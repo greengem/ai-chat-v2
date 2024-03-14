@@ -18,9 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Theme>
-          <main>
+      <body className={`${inter.className} h-dvh flex flex-col`}>
+        <Theme accentColor="violet" className="flex flex-col grow">
+          <main className="flex flex-col grow max-w-screen-lg mx-auto w-full relative">
             {children}
           </main>
         </Theme>

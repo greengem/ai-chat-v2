@@ -1,11 +1,11 @@
 'use client';
- 
 import { useChat } from 'ai/react';
- 
+import { TextField } from '@radix-ui/themes';
+
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
   return (
-    <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
+    <div className='px-5 py-10'>
       {messages.map(m => (
         <div key={m.id} className="whitespace-pre-wrap">
           {m.role === 'user' ? 'User: ' : 'AI: '}
@@ -13,13 +13,17 @@ export default function Chat() {
         </div>
       ))}
  
-      <form onSubmit={handleSubmit}>
-        <input
-          className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded shadow-xl"
+      <form 
+        onSubmit={handleSubmit}
+        className='absolute bottom-10 w-full'
+      >
+      <TextField.Root>
+        <TextField.Input 
+          placeholder="Ask anything..." 
           value={input}
-          placeholder="Say something..."
           onChange={handleInputChange}
         />
+      </TextField.Root>
       </form>
     </div>
   );
