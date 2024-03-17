@@ -5,7 +5,7 @@ import { TextField } from '@radix-ui/themes';
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
   return (
-    <div className='px-5 py-10'>
+    <div className='px-5 py-10 flex flex-col grow relative'>
       {messages.map(m => (
         <div key={m.id} className="whitespace-pre-wrap">
           {m.role === 'user' ? 'User: ' : 'AI: '}
@@ -15,7 +15,7 @@ export default function Chat() {
  
       <form 
         onSubmit={handleSubmit}
-        className='absolute bottom-10 w-full'
+        className='absolute bottom-10 left-5 right-5'
       >
       <TextField.Root>
         <TextField.Input 
