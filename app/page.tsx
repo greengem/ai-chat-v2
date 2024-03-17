@@ -8,7 +8,9 @@ export default function Chat() {
     <div className='px-5 py-10 flex flex-col grow relative'>
       {messages.map(m => (
         <div key={m.id} className="whitespace-pre-wrap">
-          {m.role === 'user' ? 'User: ' : 'AI: '}
+          <span className={m.role === 'user' ? 'text-cyan-500' : 'text-pink-500'}>
+            {m.role === 'user' ? 'User: ' : 'AI: '}
+          </span>
           {m.content}
         </div>
       ))}
